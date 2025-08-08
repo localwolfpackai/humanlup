@@ -1,0 +1,30 @@
+---
+title: Workflows
+description: Step‑by‑step guides for common tasks in MCP.
+---
+
+# Workflows
+
+This section provides practical guides for building and running agents using the Master Control Program. Each workflow is broken down into clear steps, with prompts, code snippets, and design notes.
+
+## Daily News Scout
+
+**Goal:** Fetch 10+ AI news items twice per day, summarize them, and push the summaries to a shared Google Sheet.
+
+1. **Define Agent:** Set up a GPT‑5 agent with news‑oriented prompt instructions.
+2. **Schedule via MCP:** Create a recurring task (cron) that triggers the agent at 9 AM and 5 PM Pacific Time.
+3. **Fetch & Summarize:** Use the web search tool to pull news items, then ask GPT‑5 to write concise summaries.
+4. **Store Results:** Append each summary as a new row in Google Sheets via the Google Drive connector.
+5. **Optional:** Generate social posts or digest emails from the summaries.
+
+## Component Fetcher
+
+**Goal:** Retrieve UI components from design kits (e.g. Untitled UI), convert them to React/TSX, and lint them for accessibility.
+
+1. **Prompt Agent:** Ask GPT‑5 to search the design kit for a component name (e.g. “Modal” or “Dropdown”).
+2. **Fetch Code:** Use connectors or web scraping to retrieve the raw SVG/JSON design definition.
+3. **Generate TSX:** Convert the design into a React component with Tailwind classes and shadcn/ui integration.
+4. **Lint & Test:** Run an accessibility audit (eslint + axe) and fix issues.
+5. **Publish:** Commit to your component library and update Storybook.
+
+Explore other workflows, like **Agent Curator**, **Airtable CRM Ops**, or **Fantasy League Advisor**, in their own pages (coming soon).
