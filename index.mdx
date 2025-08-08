@@ -1,0 +1,45 @@
+---
+title: Code Snippets
+description: Example code for interacting with MCP and building agents.
+---
+
+# Code Snippets
+
+This section houses snippets and templates you can adapt for your own projects. All examples are written in **TypeScript** and assume a Node.js environment.  
+If you’re using plain JavaScript, simply remove the type annotations.
+
+## MCP Client Setup
+
+```ts
+import { MCPClient } from '@humanlup/mcp-sdk'
+
+// Initialize the client with your API key and endpoint.
+const client = new MCPClient({
+  apiKey: process.env.MCP_API_KEY!,
+  endpoint: 'https://api.humanlup.ai',
+})
+
+// List registered agents
+async function listAgents() {
+  const agents = await client.agents.list()
+  console.log('Registered agents:', agents)
+}
+
+listAgents().catch(console.error)
+```
+
+## Invoking a Workflow
+
+```ts
+async function runNewsScout() {
+  const workflowId = 'news-scout'
+  const result = await client.workflows.run(workflowId, {
+    date: new Date().toISOString(),
+  })
+  console.log('Workflow result:', result)
+}
+
+runNewsScout().catch(console.error)
+```
+
+More code examples will be added as we develop the HumanLup MCP SDK.
