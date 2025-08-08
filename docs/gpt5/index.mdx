@@ -1,0 +1,32 @@
+---
+title: GPT‑5 Guide
+description: Best practices for working with GPT‑5 in your agents.
+---
+
+# Using GPT‑5 in Agents
+
+GPT‑5 represents the latest generation of language models, offering improved reasoning, longer context windows, and finer‑grained control over responses. This section outlines how to harness GPT‑5 within your MCP environment.
+
+## Prompt Design
+
+* **System Messages:** Define the agent’s persona, objectives, and guidelines. Keep them concise but explicit.
+* **User Messages:** Describe tasks clearly. Use numbered steps and delimiters (e.g. `---`) to separate sections when combining multiple instructions.
+* **Assistant Messages:** Provide examples of desired outputs to prime the model.
+
+## Context Window Management
+
+With a larger context window, GPT‑5 can handle more data. Nevertheless, always:
+
+1. **Trim Irrelevant History:** Keep only the messages that influence current decisions.
+2. **Summarize:** Summarize long passages before adding them into the context.
+3. **Chunk Data:** When passing documents, break them into semantically meaningful chunks and label each chunk.
+
+## Tool Use
+
+Combine GPT‑5 with tools for reliable actions:
+
+- **Web Browsing:** Use web search to find up‑to‑date information when memory is insufficient.
+- **Calculations:** Offload calculations to calculators rather than asking GPT‑5 to compute.
+- **APIs & Connectors:** For internal data (GitHub, Gmail, Google Drive), use connectors via MCP tools, not plain prompts.
+
+Move on to [Workflows](/docs/workflows) for practical examples of integrating GPT‑5 with MCP.
